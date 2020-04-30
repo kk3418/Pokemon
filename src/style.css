@@ -25,8 +25,7 @@ main {
 
 .container {
   height: 100%;
-  flex-basis: minmax(70px,30%);
-  flex-shrink: 1; 
+/*   flex-shrink: 1;  */
 /*   flex-grow: 1;  */
   margin-bottom: 150px;
 }
@@ -34,6 +33,6 @@ main {
 .image {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
