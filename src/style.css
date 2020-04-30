@@ -16,19 +16,24 @@ nav {
 main {
   background-color: red;
   position: relative;
-  height: 100%;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
 }
 
 .container {
   height: 100%;
-  width: 50%;
-  margin: 0 auto 50px auto;
+  flex-basis: minmax(70px,30%);
+  flex-shrink: 1; 
+/*   flex-grow: 1;  */
+  margin-bottom: 150px;
 }
 
 .image {
   height: 100%;
   width: 100%;
-  object-fit: scale-down;
+  object-fit: cover;
 }
 

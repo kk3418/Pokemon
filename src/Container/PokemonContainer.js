@@ -5,12 +5,12 @@ import {Pokemon} from '../Component/Pokemon'
 
 export function PokemonContainer(){
       const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-        variables: { first: 5 },
+        variables: { first: 10 },
     })
       return (
-        <div className="container">
+        <>
           {pokemons.map(item => <Pokemon key={item.id} pokemon={item} /> )}
-        </div>
+          </>
       )
 }
 
