@@ -8,10 +8,17 @@ export const GET_POKEMONS = gql`
       image
       maxHP
       maxCP
+      types
       attacks {
         special {
           name
           damage
+          type
+        }
+        fast {
+          name
+          damage
+          type
         }
       }
     }
@@ -24,6 +31,7 @@ export const GET_POKEMON_NAME = gql`
       image
       maxHP
       maxCP
+      types
       attacks {
         special {
           name
