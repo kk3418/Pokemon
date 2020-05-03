@@ -15,11 +15,6 @@ export const GET_POKEMONS = gql`
           damage
           type
         }
-        fast {
-          name
-          damage
-          type
-        }
       }
     }
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import ApolloClient from 'apollo-boost'
 import {ApolloProvider} from '@apollo/react-hooks'
-import {PokemonContainer} from './Container/PokemonContainer'
+import {PokemonContainer, Search} from './Container/PokemonContainer'
 import './style.css'
 
 function App(){
@@ -11,6 +11,7 @@ function App(){
   return (
     <ApolloProvider client={client}>
       <nav>
+        <Search />
       </nav>
       <main>
         <PokemonContainer/>

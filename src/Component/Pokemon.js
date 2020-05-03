@@ -1,28 +1,14 @@
 import React from 'react'
 
 export function Pokemon({pokemon}){
-  const {fast, special} = pokemon.attacks
+  const {special} = pokemon.attacks
   const typeString = pokemon.types.map((type, i) => {
-    let space = "2rem"
+    let space = "1.5rem"
     if (i === 0) space = "1rem"
     return (
       <span style={ {paddingLeft: space} }>
         {` ${type}`}
       </span>
-    )
-  })
-  const fastString = fast.map(item => {
-    return (
-      <option>
-        {`fast-attack : ${item.name} ${item.damage} type : ${item.type}`} 
-      </option>
-    )
-  })
-  const specialString = special.map(ite => {
-    return (
-      <option>
-        {`special-attack : ${ite.name} ${ite.damage} type : ${ite.type}`} 
-      </option>
     )
   })
   
@@ -31,7 +17,7 @@ export function Pokemon({pokemon}){
       <h2>{pokemon.name}</h2>
       <p>
         {`HP: ${pokemon.maxHP}`}
-        <span style={ {paddingLeft: "3rem"} }>
+        <span style={ {paddingLeft: "1rem"} }>
           {`CP : ${pokemon.maxCP}`}
         </span>
       </p>
@@ -41,10 +27,15 @@ export function Pokemon({pokemon}){
       </p>
       <img className="image" src={pokemon.image} alt="ops" />
       <br/>
-      <select className="attacks">
-        {fastString}
-        {specialString}
-      </select>
+      <div className="attacks">
+        {special.map(item => (
+          <div className="special-attack"
+            key={`${pokemon.name}-${item.name}`}>
+            <p>{item.name}</p>
+            <p>{item.damage}</p>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
