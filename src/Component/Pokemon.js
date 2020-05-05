@@ -4,10 +4,11 @@ export function Pokemon({pokemon}){
   const {special} = pokemon.attacks
   const typeString = pokemon.types.map((type, i) => {
     let space = "1.5rem"
-    if (i === 0) space = "1rem"
+    if (i === 0) space = "0.75rem"
     return (
-      <span style={ {paddingLeft: space} }>
-        {` ${type}`}
+      <span key={type + String(i)}
+      style={ {paddingLeft: space} }>
+        {type}
       </span>
     )
   })
@@ -22,8 +23,8 @@ export function Pokemon({pokemon}){
         </span>
       </p>
       <p>
-        TYPES : 
-          {typeString}
+        <span>TYPES :</span>
+        {typeString}
       </p>
       <img className="image" src={pokemon.image} alt="ops" />
       <br/>
