@@ -15,7 +15,7 @@ function App(){
   return (
     <ApolloProvider client={client}>
       <nav>
-        <Search key={`search`} trans={{find, setFind, isSearch, setSearch}}  />
+        <Search key={`search`} trans={{setFind, isSearch, setSearch}}/>
       </nav>
       <main>
           <PokemonContainer key={`display`} find={find} isSearch={isSearch} />
