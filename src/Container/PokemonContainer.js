@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { GET_POKEMONS , GET_POKEMON_NAME } from '../graphql/get-pokemon'
+import { GET_POKEMONS } from '../graphql/get-pokemon'
 import {Pokemon} from '../Component/Pokemon'
 
 
@@ -28,27 +28,6 @@ export function PokemonContainer({find, isSearch}){
   )
 }
 
-export function Search(){
-  const [find, setFind] = useState("")
-  const {data: {pokemon = {} } = {}} = useQuery(GET_POKEMON_NAME, {
-    variables : { id: "", name: find },
-  })
-  function handleClick(){
-    console.log(pokemon.maxHP)
-  }
-  function handleChange(event){
-    setFind(event.target.value)
-  }
-  return (
-    <div className="search-box">
-      <input id="insert" name="findPokemon" value={find}
-        type="text" onChange={handleChange}
-        placeholder="type pokemon's name" 
-        />
-      <button id="click" onClick={handleClick}>search</button>
-    </div>
-  )
-}
 
 
 
