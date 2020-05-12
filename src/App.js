@@ -9,8 +9,8 @@ function App(){
   const client = new ApolloClient({
     uri: 'https://graphql-pokemon.now.sh'
   })
-  const [find, setFind] = useState("Caterpie")
-  const [isSearch, setSearch] = useState(false)
+  const [find, setFind] = useState("")
+  const [isSearch, setSearch] = useState({is: false, page: "5"})
 
   return (
     <ApolloProvider client={client}>
@@ -18,7 +18,8 @@ function App(){
         <Search key={`search`} trans={{setFind, isSearch, setSearch}}/>
       </nav>
       <main>
-          <PokemonContainer key={`display`} find={find} isSearch={isSearch} />
+          <PokemonContainer key={`display`} find={find} 
+          isSearch={isSearch} setSearch={setSearch} />
       </main>
     </ApolloProvider>
   )
