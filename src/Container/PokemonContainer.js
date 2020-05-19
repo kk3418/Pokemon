@@ -1,51 +1,56 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { GET_POKEMONS } from '../graphql/get-pokemon'
 import {Pokemon} from '../Component/Pokemon'
-import { Display } from '../Component/searchDisplay'
+import {Icon} from '../Component/Icon'
 
-export function PokemonContainer({find, isSearch, setSearch}){
+export function PokemonContainer({find, setFind, page}){
+
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
     variables: { first: 200 }
   })
-  //console.log(pokemons)
-
-useEffect(() => {
-  document.getElementById("select-display").disabled = isSearch.is
-},[isSearch.is])
- 
   const s = 0
-  const e = isSearch.page === "all" ? 200 : parseInt(isSearch.page)
+  const e = page === "all" ? 200 : parseInt(page)
+  const [isloading, setLoading] = useState(true)
 
+  useEffect(() => {
+    document.getElementById("select-display")
+    .disabled = find === "" ? false : true
+  },[find])
+
+  useEffect(() =>{
+    pokemons.length === 0 ? setLoading(true) : setLoading(false)
+  },[pokemons])
+  
   function Finding(x = find) {
-    let render
     for (let Element of pokemons) {
       if (Element.name === x) {
-        render = () => <Pokemon pokemon={Element} />
-        break
+        return  <Pokemon pokemon={Element} />
       }
-      render = "fail"
     }
-    switch (render){
-      case undefined :
-        render = () => <div><h1>Loading</h1></div>
-        break
-      case "fail" :
-        render = () => <div><h1>Ops ~ no such pokemon</h1></div>
-        break
-      default :
-    }
-    return <Display util={{isSearch, setSearch}} render={render} />
+    return <p id="nothing-text">Ops nothing found~~</p>
   }
 
   return (
     <>
-      {
-        isSearch.is ?
-          Finding(find)
-          :
-          pokemons.slice(s, e).map(item => <Pokemon key={item.id} pokemon={item} />)
-      }
+     {
+       isloading ? <h1>loading QQ</h1> :
+        find !== "" ? 
+          <>
+            <button id="back-button" onClick={
+              () => setFind("")
+            }>
+              <Icon />
+            </button>
+            <div className="nothing-text-box">
+              {Finding(find)}
+            </div>
+          </>
+        :
+          pokemons.slice(s,e).map(item => <Pokemon 
+            key={item.id}
+            pokemon={item}/>)
+     }
     </>
   )
 }
