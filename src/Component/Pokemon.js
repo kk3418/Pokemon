@@ -1,6 +1,7 @@
 import React from 'react'
 
-export function Pokemon({pokemon}){
+export function Pokemon({pokemon, focus}){
+
   const {special} = pokemon.attacks
   const typeString = pokemon.types.map((type, i) => {
     let space = "1.5rem"
@@ -12,7 +13,8 @@ export function Pokemon({pokemon}){
       </span>
     )
   })
-  
+  const focusId = focus
+
   return (
     <div className="container">
       <h2>{pokemon.name}</h2>
@@ -26,7 +28,7 @@ export function Pokemon({pokemon}){
         <span>TYPES :</span>
         {typeString}
       </p>
-      <img className="image" src={pokemon.image} alt="ops" />
+      <img className="image" src={pokemon.image} alt="ops" id={focusId} />
       <br/>
       <div className="attacks">
         {special.map(item => (

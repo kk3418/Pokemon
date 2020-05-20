@@ -54,7 +54,8 @@ nav {
 
 main {
   position: relative;
-  margin: 100px auto 0 auto;
+  margin: 0 auto;
+  top: 120px;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -118,7 +119,26 @@ main {
 }
 
 #nothing-text {
+  position: relative;
   margin-top: 0;
   text-align: center;
   font-size: 2rem;
+}
+
+#loading {
+  position: absolute;
+  height: 30vh;
+  width: 30vw;
+  top: 20vh;
+  object-fit: contain;
+  animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(359deg);
+  }
 }

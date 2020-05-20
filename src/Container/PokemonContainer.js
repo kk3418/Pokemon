@@ -15,10 +15,12 @@ export function PokemonContainer({find, setFind, page}){
 
   useEffect(() => {
     document.getElementById("select-display")
-    .disabled = find === "" ? false : true
+      .disabled = find === "" ? false : true
+    setLoading(true)
+    setTimeout(() => setLoading(false),1000)
   },[find])
 
-  useEffect(() =>{
+  useEffect(() => {
     pokemons.length === 0 ? setLoading(true) : setLoading(false)
   },[pokemons])
   
@@ -34,7 +36,10 @@ export function PokemonContainer({find, setFind, page}){
   return (
     <>
      {
-       isloading ? <h1>loading QQ</h1> :
+       isloading ? 
+        <img id="loading" 
+        src={process.env.PUBLIC_URL + "ball-icon.png"}
+        alt="loading QQ" /> :
         find !== "" ? 
           <>
             <button id="back-button" onClick={
@@ -44,12 +49,15 @@ export function PokemonContainer({find, setFind, page}){
             </button>
             <div className="nothing-text-box">
               {Finding(find)}
-            </div>
+            </div>  
           </>
         :
-          pokemons.slice(s,e).map(item => <Pokemon 
+          pokemons.slice(s,e).map((item, index) => <Pokemon 
             key={item.id}
-            pokemon={item}/>)
+            pokemon={item}
+            focus={index === e-1 ? "need-focus" : null}
+            />
+          )
      }
     </>
   )

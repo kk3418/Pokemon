@@ -15,7 +15,7 @@ function App(){
       </nav>
       <main style={
         {
-          justifyContent: find !== "" ? "space-evenly" : "space-around"
+          justifyContent: find !== "" ? "center" : "space-around"
         }
       }>
         <PokemonContainer
