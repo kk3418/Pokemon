@@ -17,7 +17,9 @@ export function Pokemon({pokemon, focus}){
 
   return (
     <div className="container">
-      <h2>{pokemon.name}</h2>
+      <button id={focusId} >
+        {pokemon.name}
+      </button>
       <p>
         {`HP: ${pokemon.maxHP}`}
         <span style={ {paddingLeft: "1rem"} }>
@@ -28,8 +30,8 @@ export function Pokemon({pokemon, focus}){
         <span>TYPES :</span>
         {typeString}
       </p>
-      <img className="image" src={pokemon.image} alt="ops" id={focusId} />
-      <br/>
+      <img className="image" src={pokemon.image} alt="ops" />
+      <br />
       <div className="attacks">
         {special.map(item => (
           <div className="special-attack"

@@ -1,0 +1,18 @@
+{
+    "short_name": "Pokemon",
+    "name": "Pokemon App by create react-app",
+    "icons": [
+      {
+        "src": "favicon.ico",
+        "type": "image/svg"
+      },
+      {
+        "src": "ball-icon.png",
+        "type": "image/png"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }

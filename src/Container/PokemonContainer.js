@@ -7,18 +7,26 @@ import {Icon} from '../Component/Icon'
 export function PokemonContainer({find, setFind, page}){
 
   const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-    variables: { first: 200 }
+    variables: { first: 151 }
   })
   const s = 0
-  const e = page === "all" ? 200 : parseInt(page)
+  const e = page === "all" ? 151 : parseInt(page)
   const [isloading, setLoading] = useState(true)
 
   useEffect(() => {
     document.getElementById("select-display")
       .disabled = find === "" ? false : true
     setLoading(true)
-    setTimeout(() => setLoading(false),1000)
+    setTimeout(() => setLoading(false), 1000)
   },[find])
+
+  useEffect(() => {
+    const f = document.getElementById("need-focus")
+    if (null !== f) {
+      console.trace("focus")
+      f.focus({preventScroll: false})
+    }
+  },[page])
 
   useEffect(() => {
     pokemons.length === 0 ? setLoading(true) : setLoading(false)
