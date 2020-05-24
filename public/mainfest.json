@@ -3,7 +3,7 @@
     "name": "Pokemon App by create react-app",
     "icons": [
       {
-        "src": "favicon.ico",
+        "src": "pokemon-ball.svg",
         "type": "image/svg"
       },
       {
