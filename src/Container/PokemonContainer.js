@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks'
 import { GET_POKEMONS } from '../graphql/get-pokemon'
 import {Pokemon} from '../Component/Pokemon'
 import {Icon} from '../Component/Icon'
+import ballIcon from './ball-icon.png'
 
 export function PokemonContainer({find, setFind, page}){
 
@@ -18,7 +19,7 @@ export function PokemonContainer({find, setFind, page}){
       .disabled = find === "" ? false : true
     setLoading(true)
     setTimeout(() => setLoading(false), 1000)
-  },[find])
+  },[find, page])
 
   useEffect(() => {
     const f = document.getElementById("need-focus")
@@ -26,7 +27,7 @@ export function PokemonContainer({find, setFind, page}){
       console.trace("focus")
       f.focus({preventScroll: false})
     }
-  },[page])
+  })
 
   useEffect(() => {
     pokemons.length === 0 ? setLoading(true) : setLoading(false)
@@ -46,7 +47,7 @@ export function PokemonContainer({find, setFind, page}){
      {
        isloading ? 
         <img id="loading" 
-        src={process.env.PUBLIC_URL + "ball-icon.png"}
+        src={ ballIcon }
         alt="loading QQ" /> :
         find !== "" ? 
           <>

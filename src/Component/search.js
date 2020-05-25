@@ -21,9 +21,12 @@ export function Search(props){
       }>
         <option value="5">5</option>
         <option value="15">15</option>
-        <option value="25">25</option>
-        <option value="35">35</option>
-        <option value="45">45</option>
+        <option value="30">30</option>
+        <option value="50">50</option>
+        <option value="70">70</option>
+        <option value="90">90</option>
+        <option value="110">110</option>
+        <option value="130">130</option>
         <option value="all">all</option>
       </select>
     </div>
