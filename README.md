@@ -4,7 +4,7 @@
 有`<input>`可以輸入名稱但必須名稱完全一樣，以及`<select>`可以選擇顯示個數
 畫面呈現上每次更新畫面時會有最少一秒loading 畫面，直到下載到所需資料並重新更新state為止
 
-## 心得：
+### 心得：
 學到GraphQL引用到react的實作，用到的函式庫還有程式碼的寫法等基本概念，而比較深入的部份是react useEffect hook的使用。例如：
 ```javascript 
   useEffect(() => {
