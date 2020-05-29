@@ -17,7 +17,7 @@
 ```
 這段程式碼是為了要讓`<button id="need-focus">`這個標籤在每次重選新的顯示範圍時能用`.focus()`聚焦到最底下的項目，但是這個標籤未必在這次render後存在，因此為了確保每次更新DOM時能檢查這個`button`是否建立以及若存在則聚焦到它的邏輯確實執行，這時候用useEffect對我而言就顯得很有用。
 
-#### GraphQL API : https://graphql-pokemon.now.sh/
-### 參考repository : [Karl Hadwen's GitHub](https://github.com/karlhadwen/pokemon)
-
 ![](https://media.giphy.com/media/YqiV1dpZB3LOweOzPP/giphy.gif)
+
+#### GraphQL API : https://graphql-pokemon.now.sh/
+#### 參考repository : [Karl Hadwen's GitHub](https://github.com/karlhadwen/pokemon)
