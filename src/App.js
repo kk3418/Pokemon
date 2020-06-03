@@ -2,16 +2,25 @@ import React, {useState} from 'react'
 import {PokemonContainer} from './Container/PokemonContainer'
 import {Search} from './Component/search'
 import './style.css'
+import {ReactComponent as Reorder} from './reorder-24px.svg'
 
 function App(){
 
   const [find, setFind] = useState("")
   const [page, setPage] = useState("5")
+  const [expand, setExpand] = useState(true)
 
   return (
     <>
       <nav>
-        <Search trans={{ setFind, setPage }} />
+        <div className="nav-toggle">
+          <button onClick={
+            () => setExpand(!expand)
+          }>
+            <Reorder />
+          </button>
+        </div>
+        <Search trans={{ setFind, setPage, expand}}/>
       </nav>
       <main style={
         {

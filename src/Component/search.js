@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 
 export function Search(props){
-  const {setFind, setPage} = props.trans
+
+  const {setFind, setPage, expand} = props.trans
   const [temp, setTemp] = useState("")
-  
+  const id = expand ? 'toggler' : null
+
   return (
-    <div className="search-box">
+    <div className="search-box" id={id}>
       <input id="insert" name="findPokemon" value={temp}
         type="text" onChange={event => setTemp(event.target.value)}
         placeholder="type pokemon"

@@ -18,39 +18,75 @@ body {
 
 ::placeholder {
   color: white;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 nav {
   position: fixed;
   top: 0;
   background-color: rgb(205,92,92);
-  height: 70px;
+  height: auto;
   width: 100%;
   z-index: 2;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
+.nav-toggle {
+  display: none;
+}
+
 .search-box {
-  padding: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 33px;
+  padding: 2vh 0;
 }
 
 #insert {
   border-style: none;
-  height: 33px;
-  width: 25vw;
+  width: 250px;
   background-color: rgb(240,128,128);
   font-size: 1.5rem;
 }
 
-#click, #select-display{
-  height: 33px;
+#click, #select-display {
   margin-left: 1.5rem;
   border-style: none;
   background-color: rgb(240,128,128);
   color: white;
   font-size:  1.5rem;
+}
+
+#select-display {
+  justify-self: center;
+}
+
+@media screen and (max-width: 550px) {
+  #toggler {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+    height: 50px;
+    width: 100vw;
+  }
+
+  .nav-toggle button {
+    height: 100%;
+    border: none;
+    background-color: rgb(240,128,128);
+  }
+
+  .search-box {
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, 50px);
+    row-gap: 2vh;
+  }
 }
 
 main {
